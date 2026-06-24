@@ -54,7 +54,7 @@ TEST(GaussianBlurTest, BlurFromImageStaysUniform) {
     EXPECT_EQ(result.getPixel(1, 1), Pixel({ 128, 128, 128 }));
 }
 
-// Тест 1: Проверка инверсии цветов (InverseFilter)
+// проверка инверсии цветов (InverseFilter)
 TEST_F(ImageFilterTest, InverseColorsCorrectly) {
     InverseFilter filter;
     Image result = filter.apply(*testImage);
@@ -62,7 +62,7 @@ TEST_F(ImageFilterTest, InverseColorsCorrectly) {
     EXPECT_EQ(result.getPixel(0, 0), Pixel({ 245, 235, 225 }));
 }
 
-// Тест 2: Проверка усреднения цветов 8-bit эффекта (PixelateFilter)
+// проверка усреднения цветов 8-bit эффекта (PixelateFilter)
 TEST(PixelateFilterTest, DynamicBlockAveraging) {
     Image img(2, 2);
     img.setPixel(0, 0, Pixel{ 100, 50, 200 });
@@ -79,7 +79,7 @@ TEST(PixelateFilterTest, DynamicBlockAveraging) {
     EXPECT_EQ(result.getPixel(1, 1), expected);
 }
 
-// Тест 3: Проверка защиты от неверного размера блока 8-bit фильтра
+// проверка защиты от неверного размера блока 8-bit фильтра
 TEST(PixelateFilterTest, InvalidBlockSizeException) {
     EXPECT_THROW(PixelateFilter(0), std::invalid_argument);
     EXPECT_THROW(PixelateFilter(-5), std::invalid_argument);
